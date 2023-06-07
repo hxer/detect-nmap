@@ -1,0 +1,15 @@
+match http m|<title>Apache Flink Web Dashboard</title>| p/Apache Flink Dashboard/
+match http m|X-Powered-By:.{1,20}JBoss-([\S]+)| p/JBoss/
+match http m|<title>Jupyter Notebook</title>| p/Apache ShardingSphere UI/
+match http m|<title>sharding-ui</title>| p/Jupyter Notebook/
+match http m|^HTTP/1\.[01] \d\d\d .+?Docker-Distribution-Api-Version: registry/([\d.]+)| p/Docker Registry/ i/API: $1/
+match http m|<title>Portainer</title>| p/Portainer/
+match http m|<title>Home - Mongo Express</title>| p/mongo-express/
+match http m|<title>Welcome to XAMPP</title>| p/XAMPP/
+match http m|<title>.*?phpMyAdmin.*?</title>| p/phpMyAdmin/
+match http m|<title>OneinStack - A PHP/JAVA Deployment Tool</title>| p/OneinStack/
+match http m|Hue and the Hue logo are trademarks of Cloudera, Inc\.| p/Hue/
+match http m|<title>Solr Admin</title>\s+?<link rel="icon" type="image/x-icon" href="img/favicon\.ico\?_=([\d._-]+)">| p/Apache Solr/ v/$1/
+match http m|^HTTP/1\.1 \d\d\d .+?Server: stgw/([\d._-]+)| p/stgw/ v/$1/
+match http m|^HTTP/1\.1 \d\d\d .+?Server: swoole-http-server| p/swoole-http-server/
+match http m|^HTTP/1\.[01] \d\d\d .+?Server: Nexus/([\d._-]+)| p/Nexus Repository Manager/ v/$1/

@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  nmap:
+    container_name: nmap
+    image: janes/nmap:7.80
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "10"
+    volumes:
+      - ./nse/:/app/nse/
+    # command: nmap --script /app/nse -Pn --disable-arp-ping -sT -sV -allports --version-intensity 9 --open  -p 22 ai.beesfun.com
+    command: sleep 10000
